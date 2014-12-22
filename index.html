@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Phaser Basic Project Template</title>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="js/phaser.min.js"></script>
+	<script src="js/Boot.js"></script>
+	<script src="js/Preloader.js"></script>
+	<script src="js/MainMenu.js"></script>
+	<script src="js/EnemyMonster.js"></script>
+	<script src="js/EnemyStrong.js"></script>
+	<script src="js/FinalBoss.js"></script>
+	<script src="js/Game.js"></script>
+	<script src="js/GameOver.js"></script>
+	<script src="js/Cave.js"></script>
+	<script src="js/MaisonDouble.js"></script>
+	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+	<script src="dist/js/bootstrap.min.js"></script>
+<style type="text/css">
+	body {
+		margin: 0;
+		overflow: hidden;
+	}
+	.progress-bar {
+		background-color: green;
+	}
+	div#xp{
+		background-color: blue;
+	}
+	.red {
+		background-color: red;
+	}
+	canvas {
+		display: block;
+	}
+	.game-info{
+		background-color: grey;
+		padding-top: 1.5em;
+	}
+	p {
+		color: white;
+	}
+	div#gameContainer.center-block {
+		overflow: visible !important;
+	}
+	.dropdown-menu {
+		width:500px;
+	}
+	.dropdown-menu li{
+		padding: 2% 5% 2% 5%;
+	}
+</style>
+</head>
+<body>
+<div class="col-md-1 game-info">
+	<div class="btn-group">
+		<button type="button" class="bnt btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			Quetes <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li>Tuer des monstres <span class="pull-right">0/2</span></li>
+		</ul>
+	</div>
+</div>
+	<div class="col-md-11 game-info">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="col-md-1">
+					<img class="center-block" src="assets/images/link-life.png" alt="Your Hero">
+				</div>
+				<div class="col-md-11">
+					<div class="progress">
+						<div id="life" class="progress-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width:100%;">
+							5 Hp
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="col-md-1">
+					<img class="center-block" src="assets/images/link-life.png" alt="Your Hero">
+				</div>
+				<div class="col-md-11">
+					<div class="progress">
+						<div id="xp" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+							0 xp
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="col-md-1">
+					<img class="center-block" src="assets/images/mastersword.png" alt="Your dammage">
+				</div>
+				<div class="col-md-10">
+					<p class="text-center damage">5 DMG</p>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="col-md-1">
+					<img class="center-block" src="assets/images/mastersword.png" alt="Your dammage">
+				</div>
+				<div class="col-md-10">
+					<p class="text-center lvl">LVL.0</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="gameContainer" class="center-block" ></div>
+
+	<script type="text/javascript">
+		var  game_width=$(document).width();
+		var game_height = $(document).height()- $(".game-info").height()
+		window.onload = function() {
+	//	Create your Phaser game and inject it into the gameContainer div.
+	//	We did it in a window.onload event, but you can do it anywhere (requireJS load, anonymous function, jQuery dom ready, - whatever floats your boat)
+	var game = new Phaser.Game(game_width,game_height, Phaser.AUTO, 'gameContainer');
+	//	Add the States your game has.
+	//	You don't have to do this in the html, it could be done in your Boot state too, but for simplicity I'll keep it here
+	game.state.add('Boot', BasicGame.Boot);
+	game.state.add('Preloader', BasicGame.Preloader);
+	game.state.add('MainMenu', BasicGame.MainMenu);
+	game.state.add('Cave', BasicGame.Cave);
+	game.state.add('GameOver', BasicGame.GameOver);
+	game.state.add('Game', BasicGame.Game);
+	game.state.add('MaisonDouble', BasicGame.MaisonDouble);
+	//	Now start the Boot state.
+	game.state.start('Boot');
+};
+</script>
+
+</body>
+</html>
