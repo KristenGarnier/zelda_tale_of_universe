@@ -6,6 +6,12 @@ BasicGame.damage = 5;
 BasicGame.xp =0;
 BasicGame.level =0;
 BasicGame.monsterKill =0;
+BasicGame.queteCave = true;
+BasicGame.queteDepart = true;
+BasicGame.quetePrincipale = true;
+BasicGame.monsterCave = 0;
+BasicGame.key = false;
+BasicGame.triforce = false;
 
 
 BasicGame.Boot = function (game) {
