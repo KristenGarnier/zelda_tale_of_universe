@@ -12,8 +12,7 @@ BasicGame.Preloader.prototype = {
 		console.log("space Mother fucker")
 		//	These are the assets we loaded in Boot.js
 		//	A nice sparkly background and a loading progress bar
-		this.background = this.add.sprite(game_width/4,game_height/4, 'preloaderBackground');
-		this.preloadBar = this.add.sprite(game_width/4,game_height/ 4, 'preloaderBar');
+		this.preloadBar = this.add.sprite(game_width/4,game_height/4, 'preloaderBar');
 
 		//	This sets the preloadBar sprite as a loader sprite.
 		//	What that does is automatically crop the sprite from 0 to full-width
@@ -28,8 +27,15 @@ BasicGame.Preloader.prototype = {
 		this.game.load.tilemap('donjon', 'assets/map/donjon.json', null, Phaser.Tilemap.TILED_JSON);
 		this.game.load.image('tiles', 'assets/map/tile.png');
 		this.game.load.image('sky', 'assets/images/map6.png');
+		this.game.load.image('key', 'assets/images/key.png');
+		this.game.load.image('treasure', 'assets/images/coffre.png');
 		this.game.load.image('MaisonDouble', 'assets/images/maison_doublee.png');
-		this.game.load.image('donjon_img', 'assets/images/donjon.png');
+		this.game.load.image('triforce', 'assets/images/triforce.png');
+		this.game.load.image('startGame', 'assets/images/start.png');
+		this.game.load.image('tryAgain', 'assets/images/tryAgain.png');
+		this.game.load.image('logo', 'assets/images/logo.png');
+		this.game.load.image('fondMenu', 'assets/images/mainFond.png');
+		this.game.load.image('donjon_img', 'assets/images/donjon2.png');
 		this.game.load.spritesheet('dude', 'assets/sprites/link-blue.png', 30, 24);
 		this.game.load.spritesheet('monster', 'assets/sprites/baddie.png', 32, 32);
 		this.game.load.spritesheet('tbears', 'assets/sprites/T-bears.png', 55, 32);
@@ -57,6 +63,7 @@ BasicGame.Preloader.prototype = {
 		this.game.load.audio("house", "assets/Sound/house.mp3");
 		this.game.load.audio("cave", "assets/Sound/cave.mp3");
 		this.game.load.audio("credit", "assets/Sound/credit.mp3");
+		this.game.load.audio("key", "assets/Sound/key.mp3");
 		//	+ lots of other required assets here
 
 	},
